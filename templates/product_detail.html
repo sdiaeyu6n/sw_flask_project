@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+        <!-- <form action = "{{url_for('edit_product', id=post.id)}}" method = "POST" enctype = "multipart/form-data"> -->
+            
+            <article>
+                <hr>
+                <div class="row">
+                <div class="col">
+                    <a class="h2">{{ post.content }}</a>
+                    <p class="text-justify">{{ post.keyword }}</p>
+                </div>
+                <div class="col-md-2 d-flex flex-column">
+                    <a class="h2" href="{{ url_for('follow', id=post.id) }} ">Follow</a>
+                    <p class="text-muted text-center">{{ post.author.username}}</p>
+                    <form action = "{{url_for('edit_product', id=post.id)}}" method = "POST" enctype = "multipart/form-data">
+                        <button type="submit" class="btn btn-primary">수정</button>
+                    </form>
+                </div>
+                </div>
+                <small class="text-muted">{{ post.price }} 원</small>
+            </article>
+    </div>
+    
+{% endblock %}
+
